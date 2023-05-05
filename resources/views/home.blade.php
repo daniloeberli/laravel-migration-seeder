@@ -19,11 +19,22 @@
                             <h6 class="card-subtitle mb-2">{{$train->codice_treno}}</h6>
                             <p class="card-text">{{$train->stazione_partenza}}</p>
                             <p class="card-text">{{$train->stazione_arrivo}}</p>
-                            <p class="card-text">{{$train->is_orario}}</p>
-                            <p class="card-text">{{$train->is_cancellato}}</p>
                             <p class="card-text">{{$train->numero_carrozze}}</p>
                             <p class="card-text">{{$train->orario_partenza}}</p>
                             <p class="card-text">{{$train->orario_arrivo}}</p>
+
+                            <!--if-else per visualizzazione ritardo,cancellazione -->
+                            @if ($train->is_orario)
+                                <p>In orario</p>
+                            @else
+                                <p>Treno in ritardo</p>
+                            @endif
+
+                            @if ($train->is_cancellato)
+                                <p>Treno cancellato</p>
+                            @else
+                                <p>Treno regolare</p>
+                            @endif
                         </div>
                     </div>
                 </div>

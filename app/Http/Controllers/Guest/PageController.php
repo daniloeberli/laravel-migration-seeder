@@ -12,6 +12,7 @@ class PageController extends Controller
 
         $trains = Train::all();
 
+        $trains = Train::all()->where('orario_partenza', '>=', now());#soluzione con now() (più efficace)
         return view('home',compact('trains'));
     }
 }
